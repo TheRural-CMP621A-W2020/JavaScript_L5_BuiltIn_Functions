@@ -1,0 +1,175 @@
+<DOCTYPE! html>
+<html>
+
+<head>
+</head>
+
+<body>
+
+<p>There are many different built in functions with JavaScript.  Some of them are
+going to be different compared to what we are used to with Python. </p>
+
+<!--  ---------------------------------------------------------------------  -->
+<h1>Math Functions</h1>
+In order to call a built in math function your must type Math.function().
+<br>
+<br>
+
+Math.pow(2,3); will result in <span id ="PowerAnswer"></span>  <br>
+Math.sqrt(25); will result in <span id ="SqrtAnswer"></span>  <br>
+Math.max(4,5,99,-8,50,-1); will result in <span id ="MaxAnswer"></span>  <br>
+Math.min(4,5,99,-8,50,-1); will result in <span id ="MinAnswer"></span>  <br>
+Math.PI will result in <span id ="PiAnswer"></span>  <br>
+<br>
+<button onclick="Calculate1()">Click here to see the calculations</button>
+
+<script>
+
+function Calculate1() 	{
+	var x=Math.pow(2,3); 
+	document.getElementById("PowerAnswer").innerHTML=x +"."; 
+
+	x=Math.sqrt(25);
+	document.getElementById("SqrtAnswer").innerHTML=x +".";
+
+	x=Math.max(4,5,99,-8,50,-1);
+	document.getElementById("MaxAnswer").innerHTML=x +".";
+
+	x=Math.min(4,5,99,-8,50,-1);
+	document.getElementById("MinAnswer").innerHTML=x +".";
+
+	x=Math.PI
+	document.getElementById("PiAnswer").innerHTML=x +".";
+						}
+</script>
+
+
+<!--  ---------------------------------------------------------------------  -->
+<h1>Math Rounding Functions</h1>
+<br>
+Suppose that var x=<span id="Number">24.67859</span> <br>
+Math.trunc(x); will result in <span id="TruncAnswer"></span>   <br>
+Math.floor(x); will result in <span id="FloorAnswer"></span>   <br>
+Math.ceil(x); will result in <span id="CeilAnswer"></span>   <br>
+Math.round(x); will result in <span id="RoundAnswer"></span>   <br>
+x.toFixed(2); will result in <span id="Fixed2Answer"></span>   <br>
+x.toFixed(3); will result in <span id="Fixed3Answer"></span>   <br>
+x.toFixed(4); will result in <span id="Fixed4Answer"></span>   <br>
+x.toFixed(10); will result in <span id="Fixed10Answer"></span>   <br>
+
+<button onclick="Calc2(24.67859)">Click here to see the results.</button>
+<br>
+<br>
+Try with a different number.<input type="text" id="NumBox">
+<br>
+<button onclick="Calc3()">Click here to see the results with the number you input.</button>
+<script>
+
+function Calc2(x) 	{
+	var y;
+	
+	y=Math.trunc(x); 
+	document.getElementById("TruncAnswer").innerHTML=y +".  It cuts off the decimal.";
+
+	y=Math.floor(x);
+	document.getElementById("FloorAnswer").innerHTML=y +".  It rounds down to the one.";
+
+	y=Math.ceil(x);
+	document.getElementById("CeilAnswer").innerHTML=y +".  It rounds up the number in the one.";
+
+	y=Math.round(x);
+	document.getElementById("RoundAnswer").innerHTML=y +".  It rounds the number in the one up or down.";
+
+	y=x.toFixed(2);
+	document.getElementById("Fixed2Answer").innerHTML=y +".";
+
+	y=x.toFixed(3);
+	document.getElementById("Fixed3Answer").innerHTML=y +".";
+
+	y=x.toFixed(4);
+	document.getElementById("Fixed4Answer").innerHTML=y +".";
+
+	y=x.toFixed(10);
+	document.getElementById("Fixed10Answer").innerHTML=y +".";
+					}
+					
+function Calc3 ()	{
+	z=parseFloat(document.getElementById("NumBox").value);
+	document.getElementById("Number").innerHTML=z;
+	Calc2(z);	
+					}
+	
+</script>
+
+<!--  ---------------------------------------------------------------------  -->
+<h1>Random Number Generation</h1>
+<br>
+<p>  This is very different from random generation in Python.  Python you 
+can import a library that is full of different type of random generators.
+Many programming languages do not have a large number of generators like 
+Python.  Whenever you want to generate a number in JavaScript you need to
+have an understanding of how Math.random() works and some basic math to 
+create the type of number you want for your program.  The generators in
+JavaScript does seem to be pretty random.  Some programming languages the
+numbers aren't very random at all.  </p>
+<p>  Math.random() will generate a decimal 0<=x<1.  Try for yourself.</p>
+
+
+
+<script>
+function Random1()	{
+		var a=Math.random();
+		document.getElementById("RandomAnswer1").innerHTML=a;
+				}
+				
+				
+</script>
+
+<button onclick="Random1()">Try it!</button><div id="RandomAnswer1"></div>
+
+<br>
+
+<p>But if you want to create a random generator that is between 1 to 10
+for example but your generator only does decimals then you are going to 
+have to apply some math.  To calculate a random number between 1 to 10
+use the following code.  </p>
+<div>Math.floor((Math.random() * 10) + 1);</div>
+
+<button onclick="Random2()">Try it!</button><div id="RandomAnswer2"></div>
+
+<script>
+function Random2()	{
+		var a=Math.floor((Math.random() * 10) + 1);
+		document.getElementById("RandomAnswer2").innerHTML=a;
+				}
+				
+				
+</script>
+
+<!--  ---------------------------------------------------------------------  -->
+<h1>String Functions</h1>
+<p>  There are many different functions that are built in JavaScript that 
+deal with strings.  Here are a few.  </p>
+<br>
+Please enter a word. <input type="text" id="Word">
+<button onclick="WordFunctions()">Click here to see the the word functions.</button>
+<div id="WordAnswers"></div>
+
+
+<script>
+function WordFunctions()	{
+	var b=document.getElementById("Word").value;
+	document.getElementById("WordAnswers").innerHTML="stringVariableb.toUpperCase() will look like "+b.toUpperCase() +"<br>";
+	document.getElementById("WordAnswers").innerHTML+="stringVariableb.toLowerCase() will look like "+b.toLowerCase() +"<br>";						
+	document.getElementById("WordAnswers").innerHTML+="stringVariableb.length will be "+b.length +"<br>";
+	document.getElementById("WordAnswers").innerHTML+="stringVariableb.charAt(0) will be "+b.charAt(0) +"<br>";
+	document.getElementById("WordAnswers").innerHTML+="stringVariableb.charAt(stringVariableb.length-1) will be "+b.charAt(b.length-1) +"<br>";
+							}
+
+</script>
+<br>
+<br>
+<br>
+</body>
+
+</html>
